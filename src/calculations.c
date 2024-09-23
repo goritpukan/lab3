@@ -1,5 +1,4 @@
 #include <math.h>
-#include <stdio.h>
 #include "../include/calculations.h"
 
 double calcP(const double a, const double b) {
@@ -22,43 +21,30 @@ YResults calcY(const double a, const double b, const double c) {
     YResults yResults = {};
     yResults.error = 0;
 
-    printf("Discriminant = %lf\n", discriminant);
-
     if (discriminant > 0.0) {
-        printf("P = %lf\n", p);
-        printf("Q = %lf\n", q);
 
         yResults.isComplex = 1;
         const double u = cbrt((-(q / 2.0)) + sqrt(discriminant));
         const double v = -(p / (3.0 * u));
 
-        printf("u = %lf\n", u);
-        printf("v = %lf\n", v);
-
         yResults.y1 = u + v;
         yResults.y2 = -((u + v) / 2.0) + ((sqrt(3.0) * (u - v)) / 2.0); // *i
         yResults.y3 = -((u + v) / 2.0) - ((sqrt(3.0) * (u - v)) / 2.0); // *i
     }else if(discriminant == 0.0) {
-        printf("=0");
         yResults.isComplex = 0;
         yResults.y1 = (3.0 * q) / p;
         yResults.y2 = -((3.0 * q) / (2.0 * p));
         yResults.y3 = yResults.y2;
     }else if(discriminant < 0.0){
         const double rWithoutSqrt = -(pow(p, 3) / 27.0);
-        printf("<0\n");
         if(rWithoutSqrt >= 0.0) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
-            printf("phi = %lf\n", phi);
-            printf("r = %lf\n", r);
+
             yResults.isComplex = 0;
             yResults.y1 = 2.0 * fabs(cbrt(r) * cos(phi / 3.0));
             yResults.y2 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 2.0 * M_PI)) / 3.0);
             yResults.y3 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 4.0 * M_PI)) / 3.0);
-            printf("y1 = %lf\n", yResults.y1);
-            printf("y2 = %lf\n", yResults.y2);
-            printf("y3 = %lf\n", yResults.y3);
         }else {
             yResults.error = 1;
         }
