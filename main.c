@@ -8,7 +8,7 @@ int main(void) {
 
     XResults xResults = {};
 
-    printf("This is program, *program description*\n");
+    printf("This is program, that calculates cubic equality x^3 + a * x^2 + b * x + c = 0\n");
     do {
         handleInput(&a, 'A');
         handleInput(&b, 'B');
