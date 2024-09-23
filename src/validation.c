@@ -6,7 +6,7 @@ void handleInput(double *coefficientVariable, char coefficientChar) {
     do {
         printf("Please enter a coefficient (from -10000 to 10000) \%c: ", coefficientChar);
         isValid = scanf("%lf", &*coefficientVariable);
-        fflush(stdin);
+        while(getchar() != '\n');
         if (!isValid) {
             printf("Error, try again.\n");
         }

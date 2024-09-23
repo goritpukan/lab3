@@ -23,8 +23,8 @@ int main(void) {
             printf("x1 = \%lf\nx2 = \%lf\nx3 = \%lf\n", xResults.x1, xResults.x2, xResults.x3);
         }
         printf("Print \"r\" for restart: ");
-        fflush(stdin);
         scanf("%c", &restart);
+        while(getchar() != '\n');
     } while (restart == 'r');
     return 0;
 }

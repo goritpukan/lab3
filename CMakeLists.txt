@@ -7,4 +7,7 @@ add_executable(lab_3 main.c
         src/validation.c
         include/validation.h
         src/calculations.c
-        include/calculations.h)
+        include/calculations.h
+        main.c)
+
+target_link_libraries(lab_3 m)
