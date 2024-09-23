@@ -4,5 +4,7 @@ project(lab_3 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(lab_3 main.c
-        src/handleInput.c
-        include/handleInput.h)
+        src/validation.c
+        include/validation.h
+        src/calculations.c
+        include/calculations.h)
