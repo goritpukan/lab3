@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../include/validation.h"
 
-void handleInput(double *coefficientVariable, char coefficientChar) {
+void handleInput(const double *coefficientVariable, const char coefficientChar) {
     char isValid = 0;
     do {
         printf("Please enter a coefficient (from -10000 to 10000) \%c: ", coefficientChar);

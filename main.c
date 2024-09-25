@@ -5,7 +5,6 @@
 int main(void) {
     double a = 0, b = 0, c = 0;
     char restart = 'r';
-
     XResults xResults = {};
 
     printf("This is program, that calculates cubic equality x^3 + a * x^2 + b * x + c = 0\n");
@@ -23,8 +22,7 @@ int main(void) {
             printf("x1 = \%lf\nx2 = \%lf\nx3 = \%lf\n", xResults.x1, xResults.x2, xResults.x3);
         }
         printf("Print \"r\" for restart: ");
-        scanf("%c", &restart);
-        while(getchar() != '\n');
+        restart = getchar();
     } while (restart == 'r');
     return 0;
 }
