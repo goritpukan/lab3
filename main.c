@@ -4,7 +4,7 @@
 
 int main(void) {
     double a = 0, b = 0, c = 0;
-    char restart = 'r';
+    char restart = 0;
     XResults xResults = {};
 
     printf("This is program, that calculates cubic equality x^3 + a * x^2 + b * x + c = 0\n");
