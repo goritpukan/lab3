@@ -19,7 +19,7 @@ int main(void) {
             printf("Error!");
             //handle it
         } else {
-            printf("x1 = \%lf\nx2 = \%lf\nx3 = \%lf\n", xResults.x1, xResults.x2, xResults.x3);
+            printf("x1 = %g\nx2 = %g\nx3 = %g\n", xResults.x1, xResults.x2, xResults.x3);
         }
         printf("Print \"r\" for restart: ");
         restart = getchar();

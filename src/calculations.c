@@ -40,7 +40,10 @@ YResults calcY(const double a, const double b, const double c) {
         if(rWithoutSqrt >= 0.0) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
-
+            if(isnan(phi)) {
+                yResults.error = 1;
+                return yResults;
+            }
             yResults.isComplex = 0;
             yResults.y1 = 2.0 * fabs(cbrt(r) * cos(phi / 3.0));
             yResults.y2 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 2.0 * M_PI)) / 3.0);
@@ -54,11 +57,14 @@ YResults calcY(const double a, const double b, const double c) {
 XResults calcX(const double a, const double b, const double c) {
     XResults xResults = {};
     const YResults yResults = calcY(a, b, c);
-
+    if(yResults.error) {
+        xResults.error = yResults.error;
+        return xResults;
+    }
     xResults.x1 = yResults.y1 - a / 3.0;
     xResults.x2 = yResults.y2 - a / 3.0;
     xResults.x3 = yResults.y3 - a / 3.0;
-    xResults.error = yResults.error;
+
 //change
     return xResults;
 }
