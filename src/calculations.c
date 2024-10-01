@@ -28,8 +28,8 @@ YResults calcY(const double a, const double b, const double c) {
         const double v = -(p / (3.0 * u));
 
         yResults.y1 = u + v;
-        yResults.y2 = -((u + v) / 2.0) + ((sqrt(3.0) * (u - v)) / 2.0); // *i
-        yResults.y3 = -((u + v) / 2.0) - ((sqrt(3.0) * (u - v)) / 2.0); // *i
+        yResults.y2 = -((u + v) / 2.0) + ((sqrt(3.0) * (u - v)) / 2.0);
+        yResults.y3 = -((u + v) / 2.0) - ((sqrt(3.0) * (u - v)) / 2.0);
     }else if(discriminant == 0.0) {
         yResults.isComplex = 0;
         yResults.y1 = (3.0 * q) / p;
