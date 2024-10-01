@@ -56,11 +56,12 @@ YResults calcY(const double a, const double b, const double c) {
 }
 XResults calcX(const double a, const double b, const double c) {
     XResults xResults = {};
-    if(a == 0 && b == 0) {
+
+    const YResults yResults = calcY(a, b, c);
+    if(isnan(yResults.y1) || isnan(yResults.y2) || isnan(yResults.y3)) {
         xResults.error = 1;
         return xResults;
     }
-    const YResults yResults = calcY(a, b, c);
     if(yResults.error) {
         xResults.error = yResults.error;
         return xResults;
