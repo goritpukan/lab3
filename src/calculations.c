@@ -69,6 +69,5 @@ XResults calcX(const double a, const double b, const double c) {
     xResults.x2 = yResults.y2 - a / 3.0;
     xResults.x3 = yResults.y3 - a / 3.0;
 
-//change
     return xResults;
 }
