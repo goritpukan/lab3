@@ -11,7 +11,7 @@ void handleInput(const double *coefficientVariable, const char coefficientChar) 
             printf("Error, try again.\n");
         }
         if(*coefficientVariable < -1e100 || *coefficientVariable > 1e100) {
-            printf("You can enter coefficient in ONLY range(-1e100 - 1e100)\n");
+            printf("You can enter coefficient ONLY in range(-1e100 - 1e100)\n");
             printf("Please, try again\n");
             isValid = 0;
         }
