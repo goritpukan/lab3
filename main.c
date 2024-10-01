@@ -16,8 +16,7 @@ int main(void) {
         xResults = calcX(a, b, c);
 
         if (xResults.error) {
-            printf("Error!");
-            //handle it
+            printf("Error!\n");
         } else {
             printf("x1 = %g\nx2 = %g\nx3 = %g\n", xResults.x1, xResults.x2, xResults.x3);
         }
