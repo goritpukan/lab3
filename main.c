@@ -30,6 +30,7 @@ int main(void) {
         }
         printf("Print \"r\" for restart: ");
         restart = getchar();
+        while(getchar() != '\n');
     } while (restart == 'r');
     return 0;
 }
