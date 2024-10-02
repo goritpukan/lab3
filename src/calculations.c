@@ -35,15 +35,11 @@ YResults calcY(const double a, const double b, const double c) {
         yResults.y1 = (3.0 * q) / p;
         yResults.y2 = -((3.0 * q) / (2.0 * p));
         yResults.y3 = yResults.y2;
-    }else if(discriminant < 0.0){
+    }else{
         const double rWithoutSqrt = -(pow(p, 3) / 27.0);
         if(rWithoutSqrt >= 0.0) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
-            if(isnan(phi)) {
-                yResults.error = 1;
-                return yResults;
-            }
             yResults.isComplex = 0;
             yResults.y1 = 2.0 * fabs(cbrt(r) * cos(phi / 3.0));
             yResults.y2 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 2.0 * M_PI)) / 3.0);
