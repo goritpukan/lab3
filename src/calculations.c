@@ -2,15 +2,15 @@
 #include "../include/calculations.h"
 
 double calcP(const double a, const double b) {
-    return b - (pow(a, 2) / 3.0);
+    return b - (pow(a, 2.0) / 3.0);
 }
 
 double calcQ(const double a, const double b, const double c) {
-    return ((2.0 * pow(a, 2)) / 27.0) - ((a * b) / 3.0) + c;
+    return ((2.0 * pow(a, 2.0)) / 27.0) - ((a * b) / 3.0) + c;
 }
 
 double calcDiscriminant(const double p, const double q) {
-    return (pow(p, 3) / 27.0) + (pow(q, 2) / 4.0);
+    return (pow(p, 3.0) / 27.0) + (pow(q, 2.0) / 4.0);
 }
 
 YResults calcY(const double a, const double b, const double c) {
@@ -36,7 +36,7 @@ YResults calcY(const double a, const double b, const double c) {
         yResults.y2 = -((3.0 * q) / (2.0 * p));
         yResults.y3 = yResults.y2;
     }else{
-        const double rWithoutSqrt = -(pow(p, 3) / 27.0);
+        const double rWithoutSqrt = -(pow(p, 3.0) / 27.0);
         if(rWithoutSqrt >= 0.0) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
