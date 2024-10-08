@@ -41,6 +41,7 @@ YResults calcY(const double a, const double b, const double c) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
             yResults.isComplex = 0;
+            //radians
             yResults.y1 = 2.0 * fabs(cbrt(r) * cos(phi / 3.0));
             yResults.y2 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 2.0 * M_PI)) / 3.0);
             yResults.y3 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 4.0 * M_PI)) / 3.0);
