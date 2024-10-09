@@ -4,6 +4,8 @@
 typedef struct {
     double y1;
     double y2;
+    double complex1;
+    double complex2;
     double y3;
     char isComplex;
     char error;
@@ -12,6 +14,8 @@ typedef struct {
 typedef struct {
     double x1;
     double x2;
+    double complex1;
+    double complex2;
     double x3;
     char isComplex;
     char error;

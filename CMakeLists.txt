@@ -4,8 +4,8 @@ project(lab_3 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(lab_3 main.c
-        src/validation.c
-        include/validation.h
+        src/inputOutput.c
+        include/inputOutput.h
         src/calculations.c
         include/calculations.h
         main.c)

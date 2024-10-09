@@ -6,11 +6,11 @@ double calcP(const double a, const double b) {
 }
 
 double calcQ(const double a, const double b, const double c) {
-    return ((2.0 * pow(a, 2.0)) / 27.0) - ((a * b) / 3.0) + c;
+    return ((2.0 * pow(a, 3.0)) / 27.0) - ((a * b) / 3.0) + c;
 }
 
 double calcDiscriminant(const double p, const double q) {
-    return (pow(p, 3.0) / 27.0) + (pow(q, 2.0) / 4.0);
+    return (pow(q, 2.0) / 4.0) + (pow(p, 3.0) / 27.0);
 }
 
 YResults calcY(const double a, const double b, const double c) {
@@ -28,8 +28,8 @@ YResults calcY(const double a, const double b, const double c) {
         const double v = -(p / (3.0 * u));
 
         yResults.y1 = u + v;
-        yResults.y2 = -((u + v) / 2.0) + ((sqrt(3.0) * (u - v)) / 2.0);
-        yResults.y3 = -((u + v) / 2.0) - ((sqrt(3.0) * (u - v)) / 2.0);
+        yResults.complex1 = -((u + v) / 2.0);
+        yResults.complex2 = ((sqrt(3.0) * (u - v)) / 2.0);
     }else if(discriminant == 0.0) {
         yResults.isComplex = 0;
         yResults.y1 = (3.0 * q) / p;
@@ -41,7 +41,6 @@ YResults calcY(const double a, const double b, const double c) {
             const double r = sqrt(rWithoutSqrt);
             const double phi = acos((-q / (2.0 * r)));
             yResults.isComplex = 0;
-            //radians + change output
             yResults.y1 = 2.0 * fabs(cbrt(r) * cos(phi / 3.0));
             yResults.y2 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 2.0 * M_PI)) / 3.0);
             yResults.y3 = 2.0 * fabs(cbrt(r)) * cos((phi + ( 4.0 * M_PI)) / 3.0);
@@ -63,10 +62,16 @@ XResults calcX(const double a, const double b, const double c) {
         xResults.error = yResults.error;
         return xResults;
     }
-    xResults.x1 = yResults.y1 - a / 3.0;
-    xResults.x2 = yResults.y2 - a / 3.0;
-    xResults.x3 = yResults.y3 - a / 3.0;
-    xResults.isComplex = yResults.isComplex;
 
+    xResults.isComplex = yResults.isComplex;
+    if(yResults.isComplex) {
+        xResults.x1 = yResults.y1 - a / 3.0;
+        xResults.complex1 = yResults.complex1 - a / 3.0;
+        xResults.complex2 = yResults.complex2;
+    }else {
+        xResults.x1 = yResults.y1 - a / 3.0;
+        xResults.x2 = yResults.y2 - a / 3.0;
+        xResults.x3 = yResults.y3 - a / 3.0;
+    }
     return xResults;
 }
